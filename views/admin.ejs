@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+   
+    
+    <div class="container">
+        <a href="/home" class="navbar-link" style="font-size: 24px;"><i class="fas fa-home"></i> Home</a>
+
+        <h1>Pickup Requester Details</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Estimated Weight</th>
+                    <th>Grabage Type</th>
+                    <th>Preferred Date & Time</th>
+                    <th>Suggestion</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < admin_list.length; i++) { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td><%= admin_list[i].name %></td>
+                        <td><%= admin_list[i].mobile %></td>
+                        <td><%= admin_list[i].email %></td>
+                        <td><%= admin_list[i].locality %>, <%= admin_list[i].district %>, <%= admin_list[i].pincode %></td>
+                        <td><%= admin_list[i].estimatedweight %></td>
+                        <td><%= admin_list[i].garbagetype %></td>
+                        <td><%= admin_list[i].preferreddate %>, <%= admin_list[i].preferredtime %></td>
+                        <td><%= admin_list[i].suggestion %></td>
+                        <!-- ... (previous HTML code) ... -->
+                        <td>
+                            <select class="status-dropdown" data-user-id="<%= admin_list[i].user_id %>">
+                                <option value="Pending" <% if (admin_list[i].status === 'Pending') { %>selected<% } %>>Pending</option>
+                                <option value="In Progress" <% if (admin_list[i].status === 'In Progress') { %>selected<% } %>>In Progress</option>
+                                <option value="Completed" <% if (admin_list[i].status === 'Completed') { %>selected<% } %>>Completed</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    
+</body>
+
+</html>

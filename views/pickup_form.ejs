@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>
+            <%= locals.title%>
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="/css/pickupform.css">
+    </head>
+    <body>
+
+        <div class="part1">
+            <div class="header">
+                <h1>Quick and Easy Pickup</h1>
+                <a href="/home" class="navbar-link" style="font-size: 24px;"><i class="fas fa-home"></i> Home</a>
+
+                <a href="#" class="user-profile-link">User Profile</a>
+            </div>
+        </div>
+
+        <form action="/create-admin" method="POST">
+            <img src="/images/leaves-3923413.jpg" alt="Background Image" class="background-image">
+            
+            
+            <div class="part2">
+                <div class="left">
+                    <h2>User Information</h2>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="mobile">Mobile Number:</label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                        
+                     <label for="email">Email ID:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                       
+                        
+                        <label for="state">State:</label>
+                        <select id="state" name="state" required>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Uttar Pradesh</option>
+                            
+                        </select>
+                        
+                        <label for="district">District:</label>
+                        <select id="district" name="district" required>
+                            <option value="delhi">gautambudh nagar</option>
+                            <option value="mumbai">Uttar Pradesh</option>
+                            
+                        </select>
+                        <label for="locality">Locality:</label>
+                        <input type="text" id="locality" name="locality" required>
+                        
+                        <label for="pincode">PIN Code:</label>
+                        <input type="text" id="pincode" name="pincode" required>
+                        
+                        
+                </div>
+                <div class="right">
+                     <h2>Garbage Information</h2>
+            <label for="estimatedweight">Estimated Weight of Garbage (in kg):</label>
+            <input type="number" id="estimatedweight" name="estimatedweight" required>
+            <br> </br>
+        
+            <label>Nature of Garbage:</label>
+            <div class="checkbox-container">
+                <input type="checkbox" id="biodegradable" name="garbagetype" value="biodegradable">
+                <label for="biodegradable">Biodegradable</label>
+        
+                <input type="checkbox" id="non-biodegradable" name="garbagetype" value="non-biodegradable">
+                <label for="non-biodegradable">Non-Biodegradable</label>
+            </div>
+            
+           <!-- <label for="image-upload">Upload Image:</label>
+            <input type="file" id="image-upload" name="image-upload" accept="image/*" required>-->
+            <br> </br>
+             <label for="preferreddate">Preferred Date:</label>
+            <input type="date" id="preferreddate" name="preferreddate" required>
+                 
+                 <br> </br>
+        
+            <label for="preferredtime">Preferred Time:</label>
+            <input type="time" id="preferredtime" name="preferredtime" required>
+             <br> </br>
+        
+            <label for="suggestion">Additional Comments/Instructions:</label>
+            <textarea id="suggestion" name="suggestion" rows="4" required></textarea>
+                </div>
+            
+            </div>
+        
+            <div class="part3">
+                  
+                <button type="submit" id="submit-button">Submit</button>
+                
+            </div>
+           
+            
+        </form>
+        <script type="text/javascript" src="/js/home.js"></script>
+</div>
+
+
+
+
+
+    </body>
+</html>

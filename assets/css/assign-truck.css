@@ -1,0 +1,107 @@
+body{
+    
+    font-family: cursive;
+   /* background-color: lightblue; */
+    background: rgba(0,0,0,0.7)url("../images/pexels-karolina-grabowska-4016512.jpg");
+    background-size: cover;
+   
+   
+
+}
+
+
+  
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    
+    color: azure;
+}
+#contact-list-container{
+  background-color:white;
+  display: flex;
+  width: 100%;
+  font-weight: 900;
+}
+
+#contacts-list-container ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+
+   
+    
+
+.contact{
+    padding: 3px 10px;
+    border: 1px solid rgb(236, 13, 13);
+    box-shadow: 1px 1px 1px 1px lightpink;
+    color:black;
+    display: flex;
+    width: 31%;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(20px);
+
+    
+}
+.contact.details{
+     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+     justify-content: space-between;
+    
+
+}
+.contact.delete-button{
+    width: 20%;
+    padding: 3px;
+    text-align: center;
+    margin-top: 5px;
+}
+.contact .delete-button a{
+    color:red;
+    background-color:rgba(130, 245, 157, 0.667);
+    margin-top: 5px;
+}
+.contact p{
+    margin:5px 0;
+}
+.new-contact-form{
+    background-color:red;
+    flex-direction: column;
+   
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    width: 100%;
+ 
+
+}
+.add-button{
+   justify-content: center;
+}
+.button-add {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: -6px 0px 3px 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    
+  }

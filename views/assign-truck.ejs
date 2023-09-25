@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>
+     <%=locals.title%>
+</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<style>
+  
+ 
+  fieldset {
+    width: 400px; 
+    height: 300px; 
+  }
+  input[type="text"], input[type="number"] {
+      width: 300px; 
+      height: 40px; 
+    }
+</style>
+
+<link rel="stylesheet" href="/css/assign-truck.css">
+</head>
+<body>
+  <a href="/home" class="navbar-link" style="font-size: 24px;"><i class="fas fa-home"></i> Home</a>
+    <h1 id="page-heading">
+        <i class="fas fa-plus"></i> Add Truck
+    </h1>
+    <div id="contacts-list-container">
+      <ul>
+        <% for(let i of truck_list){%>
+          <li class="contact">
+            <div class="details">
+<!-- Truck Name: 
+Truck Capacity: 
+Associated User:  -->
+             
+              <p> <%=i.truckname%></p>
+              <p><%=i.truckcapacity%></p>
+              <p><%=i.associateduser%></p>
+              
+              </div>
+              <div class="delete-button">
+                
+                  <a href="/delete-contact/?phone=<%=i.truckname%>">
+                  <i class="fas fa-window-close"> </i>
+                </a>
+    
+               </div>
+              
+
+           
+          </li> 
+       <% } %>
+      </ul>
+    </div>
+    <div class="form">
+      <form id="new-truck-form" action="/create-truck" method="POST">
+        <fieldset>
+          <legend style="color:white;">ENTER:</legend>
+          <br>
+          
+        <input type="text" name="truckname" placeholder="Enter Truck Number" required>
+        <br>
+        <br>
+        <input type="number" name="truckcapacity" placeholder="Enter Truck Capacity (in KG)" required>
+        <br>
+        <br>
+        
+        <input type="text" name="associateduser" placeholder="Enter Associated User" required>
+        <br>
+        <br>
+        
+        <div class="add-button">
+          <button type="submit" class="button-add">Add</button>
+        </div>
+         
+        </fieldset>
+      </form>
+    </div>
+   
+    
+</body>
+
+</html>
