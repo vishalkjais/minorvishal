@@ -2,19 +2,44 @@
 const express = require('express');
 
 const path = require('path');
-const port = 7001;
+const port = 2323;
 const db=require('./config/mongoose');
 const Admin=require('./models/form');
 const Truck=require('./models/trucks');
 const { isBuffer } = require('util');
 const app = express();
+//session cookie
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+const flash = require('connect-flash');
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 // app.use('/minorvishal/assets', express.static(path.join(__dirname, 'minorvishal/assets')));
+// jayesh
 
+app.use(session({
+  name: 'human',
+  secret: 'None',
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+      maxAge: (1000)
+  }
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
+app.use('/', require('./routes'));
+
+
+
+//jayesh above
 
 
 var adminList = [
@@ -26,7 +51,7 @@ var adminList = [
 
 app.get('/', function(req, res){
     
-  return res.render('home',{
+  return res.render('home2',{
       title: "Home",
       admin_list: adminList
   });
@@ -54,7 +79,7 @@ app.get('/admin', async function(req, res) {
   }
 });
 app.get('/home', function(req, res){
-  return res.render('home', {
+  return res.render('home2', {
     title: "Home",
     admin_list: adminList
   });
@@ -82,7 +107,7 @@ app.post('/create-admin', async function(req, res) {
     console.log('******', adminList);
 
     // Redirect back to the home page after form submission
-    res.redirect('/');
+    res.render('home2');
   } catch (err) {
     console.error('Error in creating a contact:', err);
     res.status(500).send('Internal Server Error');

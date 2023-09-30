@@ -50,3 +50,10 @@ const adminSchema=new mongoose.Schema({
 });
 const Admin=mongoose.model('admin',adminSchema);
 module.exports=Admin;
+// validate: {
+//     validator: function (v) {
+//         // Check if the mobile number is exactly 10 digits long
+//         return /^[0-9]{10}$/.test(v);
+//     },
+//     message: 'Mobile number must be exactly 10 digits long.'
+// }
